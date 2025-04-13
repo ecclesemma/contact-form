@@ -8,11 +8,13 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.json()); // parse JSON
 
+// Contact form submission route
+const contactRoutes = require('./routes/contact');
+app.use('/api/contact', contactRoutes);
+
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
+mongoose.connect(process.env.MONGODB_URI)
+.then(() => {
   console.log('MongoDB connected successfully');
 }).catch((err) => {
   console.error('MongoDB connection error: ', err);
