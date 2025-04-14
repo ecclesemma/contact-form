@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const cors = require('cors');
-const allowedOrigins = process.env.allowedOrigins.split(',') || [];
+const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || [];
 
 
 const app = express();
@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors({
-    origins: allowedOrigins,
+    origin: allowedOrigins,
     methods: ['GET', 'POST'],
     credentials: false
 }));
