@@ -4,25 +4,29 @@ const submissionSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
+    maxlength: 100
   },
   email: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
+    maxlength: 254
   },
   phone: {
     type: String,
-    trim: true
+    trim: true,
+    maxlength: 20
   },
   message: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
+    maxlength: 2000
   },
   _gotcha: {
     type: String,
-    select: false // Do not include in queries by default
+    select: false
   },
   createdAt: {
     type: Date,
